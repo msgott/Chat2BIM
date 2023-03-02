@@ -8,9 +8,15 @@ namespace Chat2BIM
 {
     public class ChatbotHub : Hub
     {
-        public void Hello()
+        const string fileName = "./Assets/LargeBuilding.ifc";
+
+        
+        public void Receive(string message)
         {
-            Clients.All.hello();
+            string UserId = Context.ConnectionId;
+            Clients.Client(UserId).ClientOwnReceive("", message);
+            System.Threading.Thread.Sleep(2000);
+            Clients.Client(UserId).ClientReceive("", "Nachricht empfangen: " + message);
         }
     }
 }
