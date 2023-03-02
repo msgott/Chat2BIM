@@ -14,9 +14,9 @@ namespace Chat2BIM
         public void Receive(string message)
         {
             string UserId = Context.ConnectionId;
-            Clients.Client(UserId).ClientOwnReceive("", message);
+            Clients.Client(UserId).ClientOwnReceive(DateTime.Now.TimeOfDay.ToString(@"hh\:mm"), message);
             System.Threading.Thread.Sleep(2000);
-            Clients.Client(UserId).ClientReceive("", "Nachricht empfangen: " + message);
+            Clients.Client(UserId).ClientReceive(DateTime.Now.TimeOfDay.ToString(@"hh\:mm"), "Nachricht empfangen: " + message);
         }
     }
 }
