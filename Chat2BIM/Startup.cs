@@ -14,5 +14,8 @@ namespace Chat2BIM
             // Weitere Informationen zum Konfigurieren Ihrer Anwendung finden Sie unter https://go.microsoft.com/fwlink/?LinkID=316888.
             app.MapSignalR();
         }
+
     }
+
+    
 }
